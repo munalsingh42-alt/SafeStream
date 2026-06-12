@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Admin Dashboard</title>
+
+    <style>
+
+        body{
+            background:#111;
+            color:white;
+            font-family:Arial;
+            padding:40px;
+        }
+
+        .card{
+            background:#222;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>SafeStream Admin Analytics Dashboard</h1>
+
+    <div class="card">
+
+        <h2>Daily Revenue</h2>
+
+        <h3>₹ {{ daily_revenue }}</h3>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Weekly Revenue</h2>
+
+        <h3>₹ {{ weekly_revenue }}</h3>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Monthly Revenue</h2>
+
+        <h3>₹ {{ monthly_revenue }}</h3>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Most Popular Movies</h2>
+
+        {% for movie in popular_movies %}
+
+            <p>
+
+                {{ movie.movie__title }}
+
+                -
+
+                {{ movie.total_bookings }} bookings
+
+            </p>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="card">
+
+        <h2>Busiest Theaters</h2>
+
+        {% for theater in busiest_theaters %}
+
+            <p>
+
+                {{ theater.theater_name }}
+
+                -
+
+                {{ theater.occupancy_rate }}% occupancy
+
+            </p>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="card">
+
+        <h2>Peak Booking Hours</h2>
+
+        {% for hour in peak_hours %}
+
+            <p>
+
+                Hour {{ hour.hour }}
+
+                -
+
+                {{ hour.total }} bookings
+
+            </p>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="card">
+
+        <h2>Cancellation Rate</h2>
+
+        <h3>
+
+            {{ cancellation_percentage }}%
+
+        </h3>
+
+    </div>
+
+</body>
+</html>
