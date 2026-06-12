@@ -37,6 +37,11 @@
 </head>
 
 <body>
+    {% if error %}
+<p style="color:red;">
+    {{ error }}
+</p>
+{% endif %}
 
     <h1>Signup</h1>
 

@@ -40,6 +40,16 @@ def signup_view(request):
 
         password = request.POST['password']
 
+        if User.objects.filter(username=username).exists():
+
+            return render(
+                request,
+                'booking/signup.html',
+                {
+                    'error': 'Username already exists'
+                }
+            )
+
         User.objects.create_user(
 
             username=username,
@@ -56,7 +66,6 @@ def signup_view(request):
         request,
         'booking/signup.html'
     )
-
 
 # LOGIN
 
